@@ -1,5 +1,3 @@
-// restaurant_name, body, rating, user_id
-
 $(document).ready(() => {
     // Getting references to our form and inputs
     const rantForm = $("form.rant-form");

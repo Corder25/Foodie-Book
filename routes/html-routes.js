@@ -10,7 +10,14 @@ module.exports = function(app) {
     if (req.user) {
       res.render("members");
     }
-    res.render("index");
+    res.render("signup");
+  });
+
+  app.get("/signup", (req, res) => {
+    if (req.user) {
+      res.render("members");
+    }
+    res.render("signup");
   });
 
   app.get("/login", (req, res) => {

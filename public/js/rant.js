@@ -1,3 +1,5 @@
+// const user = require("../../models/user");
+
 $(document).ready(() => {
     // Getting references to our form and inputs
     const rantForm = $("form.rant-form");
@@ -6,6 +8,7 @@ $(document).ready(() => {
     const ratingInput = $("#rating");
     const submitBtn = $("#submit-btn");
 
+    // When the form is submitted, we validate there's an email and password entered
     let user_id;
     // When the form is submitted, we validate there's an email and password entered
     $.get("/api/user_data").then(data => {
@@ -18,7 +21,7 @@ $(document).ready(() => {
           restaurant_name: restaurantNameInput.val().trim(),
           body: bodyInput.val().trim(),
           rating: ratingInput.val(),
-          user_id: user_id
+          user_id, UserId: user_id,
       };
       if (!rantData.restaurant_name || !rantData.body || !rantData.rating) {
         return;
@@ -33,7 +36,7 @@ $(document).ready(() => {
 
     function submitRant(rant) {
         $.post("/api/rants", rant, function() {
-          window.location.replace = "/my-rants";
+          window.location.href = "/my-rants";
         });
       }
 

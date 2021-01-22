@@ -7,7 +7,11 @@ $(document).ready(() => {
     const bodyInput = $("#body");
     const ratingInput = $("#rating");
     const submitBtn = $("#submit-btn");
-  
+    let user_id;
+    $.get("/api/user_data").then(data => {
+      user_id = data.id;
+    });
+
     // When the form is submitted, we validate there's an email and password entered
     rantForm.on("submit", event => {
       event.preventDefault();
@@ -15,7 +19,7 @@ $(document).ready(() => {
           restaurant_name: restaurantNameInput.val().trim(),
           body: bodyInput.val().trim(),
           rating: ratingInput.val(),
-          user_id: 1
+          user_id: user_id
       };
 
       if (!rantData.restaurant_name || !rantData.body || !rantData.rating) {
@@ -24,13 +28,19 @@ $(document).ready(() => {
 
       console.log(rantData);
 
-      //postRant(rantData);
+      //submitRant(rantData);
   
   
       // If we have an email and password we run the loginUser function and clear the form
       //restaurantNameInput.val("");
       //bodyInput.val("");
     });
+
+    function submitRant(rant) {
+      $.post("/api/rants", rant, function() {
+        window.location.replace = "/my-rants";
+      });
+    }
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     // function postRant(restaurant_name, body, rating, user_id) {

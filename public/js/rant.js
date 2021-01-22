@@ -7,6 +7,7 @@ $(document).ready(() => {
     const bodyInput = $("#body");
     const ratingInput = $("#rating");
     const submitBtn = $("#submit-btn");
+    
     let user_id;
     $.get("/api/user_data").then(data => {
       user_id = data.id;

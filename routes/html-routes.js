@@ -33,4 +33,16 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     res.render("members");
   });
+
+  app.get("/rant", isAuthenticated, (req, res) => {
+    res.render("rant");
+  });
+
+  app.get("/my-rants", isAuthenticated, (req, res) => {
+    res.render("my-rants");
+  });
+
+  app.get("/all-rants", isAuthenticated, (req, res) => {
+    res.render("all-rants");
+  });
 };

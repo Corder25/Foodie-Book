@@ -21,6 +21,10 @@ module.exports = function(sequelize, DataTypes) {
               min: 1,
               max: 10
           }
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
       }
     });
   

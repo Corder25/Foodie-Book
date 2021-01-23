@@ -34,7 +34,7 @@ module.exports = function(app) {
     // Route for logging user out
     app.get("/logout", (req, res) => {
         req.logout();
-        res.redirect("/");
+        res.redirect("/login");
     });
 
     // Route for getting some data about our user to be used client side
@@ -61,6 +61,23 @@ module.exports = function(app) {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             db.Rant.findAll({}).then(function(dbRant) {
+                res.json(dbRant);
+            });
+        }
+    });
+
+    app.get("/api/user/:id", (req, res) => {
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+            // Otherwise send back the user's email and id
+            // Sending back a password, even a hashed password, isn't a good idea
+            db.Rant.findAll({
+                where: {
+                    user_id: req.params.id
+                }
+            }).then(function(dbRant) {
                 res.json(dbRant);
             });
         }

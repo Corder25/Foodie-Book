@@ -49,6 +49,14 @@ module.exports = function(app) {
     res.render("my-rants");
   });
 
+  app.get("/user", isAuthenticated, (req, res) => {
+    res.render("user");
+  });
+
+  app.get("/restaurant", isAuthenticated, (req, res) => {
+    res.render("restaurant");
+  });
+
   app.get("/all-rants", isAuthenticated, (req, res) => {
     res.render("all-rants");
   });

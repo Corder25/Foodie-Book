@@ -18,8 +18,12 @@ $(document).ready(() => {
           restaurant_name: restaurantNameInput.val().trim(),
           body: bodyInput.val().trim(),
           rating: ratingInput.val(),
+<<<<<<< HEAD
           user_id: user_id,
           UserId: user_id
+=======
+          user_id, UserId: user_id
+>>>>>>> 39d8ebd3a23a9a08aea3e796485061809f558ac8
       };
 
       if (!rantData.restaurant_name || !rantData.body || !rantData.rating) {
@@ -36,6 +40,7 @@ $(document).ready(() => {
       bodyInput.val("");
     });
 
+<<<<<<< HEAD
     function submitRant(res_name, body, rating, user_id) {
       $.post("/api/rants", {
         restaurant_name: res_name,
@@ -49,4 +54,26 @@ $(document).ready(() => {
         console.log(err);
       });
     }
+=======
+    function submitRant(rant) {
+        $.post("/api/rants", rant, function() {
+          window.location.href = "/my-rants";
+        });
+      }
+
+    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    // function postRant(restaurant_name, body, rating, user_id) {
+    //   $.post("/api/rants", {
+    //     email: email,
+    //     password: password
+    //   })
+    //     .then(() => {
+    //       window.location.replace("/my-rants");
+    //       // If there's an error, log the error
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // }
+>>>>>>> 39d8ebd3a23a9a08aea3e796485061809f558ac8
 });

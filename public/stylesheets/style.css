@@ -1,13 +1,13 @@
 form.signup,
 form.login {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 ul li {
-  margin-top: 15px; 
-  margin-left: 10px; 
+    margin-top: 15px;
+    margin-left: 10px;
 }

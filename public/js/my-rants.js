@@ -1,4 +1,22 @@
 $(document).ready(() => {
+<<<<<<< HEAD
+    var rantContainer = $(".rants");
+    var theRants;
+$.get("/api/rants").then(data => {
+    console.log(data);
+    theRants = data;
+    initializeRows();
+  });
+
+  // InitializeRows handles appending all of our constructed post HTML inside blogContainer
+  function initializeRows() {
+    rantContainer.empty();
+    var rantsToAdd = [];
+    for (var i = 0; i < theRants.length; i++) {
+      rantsToAdd.push(createNewRow(theRants[i]));
+    }
+    rantContainer.append(rantsToAdd);
+=======
 
     var blogContainer = $(".blog-container");
     // Click events for the edit and delete buttons
@@ -44,11 +62,23 @@ $(document).ready(() => {
       rantsToAdd.push(createNewRow(rant[i]));
     }
     blogContainer.append(rantsToAdd);
+>>>>>>> 39d8ebd3a23a9a08aea3e796485061809f558ac8
   }
 
   // This function constructs a post's HTML
   function createNewRow(rant) {
     var formattedDate = new Date(rant.createdAt).toLocaleDateString();
+<<<<<<< HEAD
+    var newPostCard = $("<div>");
+    newPostCard.addClass("card");
+    var newPostCardHeading = $("<div>");
+    newPostCardHeading.addClass("card-header");
+    var newPostTitle = $("<h2>");
+    var newPostDate = $("<small>");
+    var newPostAuthor = $("<h5>");
+    newPostAuthor.text("Written by: " + rant.user_id);
+    newPostAuthor.css({
+=======
     var newRantCard = $("<div>");
     newRantCard.addClass("card");
     var newRantCardHeading = $("<div>");
@@ -64,11 +94,31 @@ $(document).ready(() => {
     var newRantUser = $("<h5>");
     // newRantUser.text("Written by: " + Rant.User.name);
     newRantUser.css({
+>>>>>>> 39d8ebd3a23a9a08aea3e796485061809f558ac8
       float: "right",
       color: "blue",
       "margin-top":
       "-10px"
     });
+<<<<<<< HEAD
+    var newPostCardBody = $("<div>");
+    newPostCardBody.addClass("card-body");
+    var newPostBody = $("<p>");
+    newPostTitle.text(rant.restaurant_name + " ");
+    newPostBody.text(rant.body);
+    newPostDate.text(formattedDate);
+    newPostTitle.append(newPostDate);
+    newPostCardHeading.append(newPostTitle);
+    newPostCardHeading.append(newPostAuthor);
+    newPostCardBody.append(newPostBody);
+    newPostCard.append(newPostCardHeading);
+    newPostCard.append(newPostCardBody);
+    newPostCard.data("rant", rant);
+    return newPostCard;
+  }
+
+});
+=======
     var newRantCardBody = $("<div>");
     newRantCardBody.addClass("card-body");
     var newRantBody = $("<p>");
@@ -88,3 +138,4 @@ $(document).ready(() => {
   }
 
 })
+>>>>>>> 39d8ebd3a23a9a08aea3e796485061809f558ac8

@@ -2,8 +2,22 @@ $(document).ready(() => {
     var rantContainer = $(".rants");
     var theRants;
 
-    $.get("/api/rants").then(data => {
+    var url = window.location.search;
+    var resName, resNameSplit;
+    /*
+    $("#burger").val().trim(),
+    resName = resName.val().trim()
+    */
+
+    if (url.indexOf("?name=") !== -1) {
+        resName = url.split("=")[1];
+        
+        //resNameSplit
+    }
+
+    $.get("/api/restaurant/" + resName).then(data => {
         console.log(data);
+        $(".restaurant").text(data[0].restaurant_name.toUpperCase());
         theRants = data;
         initializeRows();
     });
@@ -26,18 +40,14 @@ $(document).ready(() => {
         var newPostCardHeading = $("<div>");
         newPostCardHeading.addClass("card-header");
         var newPostTitle = $("<h2>");
-        var resLink = $("<a>");
-        resLink.attr('href', '/restaurant?name=' + rant.restaurant_name);
         var newPostDate = $("<small>");
-        var userLink = $("<a>");
-        userLink.attr('href', '/user?user_id=' + rant.User.id);
         var newPostAuthor = $("<h5>");
-        newPostAuthor.text("Written by: " + rant.User.username);
-        newPostAuthor.css({
-            float: "right",
-            color: "blue",
-            "margin-top": "-10px"
-        });
+        // newPostAuthor.text("Written by: " + rant.User.username);
+        // newPostAuthor.css({
+        //     float: "right",
+        //     color: "blue",
+        //     "margin-top": "-10px"
+        // });
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
         var newPostBody = $("<p>");
@@ -45,15 +55,12 @@ $(document).ready(() => {
         newPostBody.text(rant.body);
         newPostDate.text(formattedDate);
         newPostTitle.append(newPostDate);
-        newPostCardHeading.append(resLink);
-        resLink.append(newPostTitle);
-        newPostCardHeading.append(userLink);
-        userLink.append(newPostAuthor);
+        newPostCardHeading.append(newPostTitle);
+        newPostCardHeading.append(newPostAuthor);
         newPostCardBody.append(newPostBody);
         newPostCard.append(newPostCardHeading);
         newPostCard.append(newPostCardBody);
         newPostCard.data("rant", rant);
         return newPostCard;
     }
-
 });

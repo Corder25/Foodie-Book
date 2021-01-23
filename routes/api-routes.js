@@ -9,6 +9,7 @@ module.exports = function(app) {
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
         // Sending back a password, even a hashed password, isn't a good idea
         res.json({
+            username: req.user.username,
             email: req.user.email,
             id: req.user.id
         });
@@ -53,6 +54,16 @@ module.exports = function(app) {
         }
     });
 
+    app.get("/api/user_data/:id", (req, res) => {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
+
     app.get("/api/rants", (req, res) => {
         if (!req.user) {
             // The user is not logged in, send back an empty object
@@ -60,7 +71,9 @@ module.exports = function(app) {
         } else {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
-            db.Rant.findAll({}).then(function(dbRant) {
+            db.Rant.findAll({
+                include: [db.User]
+            }).then(function(dbRant) {
                 res.json(dbRant);
             });
         }
@@ -76,6 +89,23 @@ module.exports = function(app) {
             db.Rant.findAll({
                 where: {
                     user_id: req.params.id
+                }
+            }).then(function(dbRant) {
+                res.json(dbRant);
+            });
+        }
+    });
+
+    app.get("/api/restaurant/:name", (req, res) => {
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+            // Otherwise send back the user's email and id
+            // Sending back a password, even a hashed password, isn't a good idea
+            db.Rant.findAll({
+                where: {
+                    restaurant_name: req.params.name
                 }
             }).then(function(dbRant) {
                 res.json(dbRant);

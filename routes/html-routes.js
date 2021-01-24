@@ -30,6 +30,7 @@ module.exports = function(app) {
 
   app.get("/logout", (req, res) => {
     // If the user already has an account send them to the members page
+    // localStorage.clear(); or localStorage.removeItem("user") - local storage comes back undefined
     req.logout();
     res.redirect("/login")
     // res.render("login");

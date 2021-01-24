@@ -1,7 +1,9 @@
 $(document).ready(() => {
     var rantContainer = $(".rants");
     var theRants;
-    
+
+    $(document).on("click", "button.edit", handlePostEdit);
+
     var user = JSON.parse(localStorage.getItem("user"));
     var userId = user.id;
 
@@ -31,13 +33,10 @@ $(document).ready(() => {
         newPostCardHeading.addClass("card-header");
         var newPostTitle = $("<h2>");
         var newPostDate = $("<small>");
+        var editBtn = $("<button>");
+        editBtn.text("EDIT");
+        editBtn.addClass("edit btn btn-info");
         var newPostAuthor = $("<h5>");
-        // newPostAuthor.text("Written by: " + rant.username);
-        // newPostAuthor.css({
-        //     float: "right",
-        //     color: "blue",
-        //     "margin-top": "-10px"
-        // });
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
         var newPostBody = $("<p>");
@@ -46,6 +45,7 @@ $(document).ready(() => {
         newPostDate.text(formattedDate);
         newPostTitle.append(newPostDate);
         newPostCardHeading.append(newPostTitle);
+        newPostCardHeading.append(editBtn);
         newPostCardHeading.append(newPostAuthor);
         newPostCardBody.append(newPostBody);
         newPostCard.append(newPostCardHeading);
@@ -53,5 +53,14 @@ $(document).ready(() => {
         newPostCard.data("rant", rant);
         return newPostCard;
     }
+
+    function handlePostEdit() {
+        var currentRant = $(this)
+          .parent()
+          .parent()
+          .data("rant");
+        window.location.href = "/rants?rant_id=" + currentRant.id;
+      }
+
 
 });

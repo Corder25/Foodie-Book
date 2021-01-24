@@ -59,7 +59,7 @@ $(document).ready(() => {
           .parent()
           .parent()
           .data("rant");
-        window.location.href = "/rants?rant_id=" + currentRant.id;
+        window.location.href = "/rant?rant_id=" + currentRant.id;
       }
 
 

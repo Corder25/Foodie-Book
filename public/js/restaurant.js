@@ -42,12 +42,12 @@ $(document).ready(() => {
         var newPostTitle = $("<h2>");
         var newPostDate = $("<small>");
         var newPostAuthor = $("<h5>");
-        // newPostAuthor.text("Written by: " + rant.User.username);
-        // newPostAuthor.css({
-        //     float: "right",
-        //     color: "blue",
-        //     "margin-top": "-10px"
-        // });
+        newPostAuthor.text("Written by: " + rant.User.username);
+        newPostAuthor.css({
+            float: "right",
+            color: "blue",
+            "margin-top": "-10px"
+        });
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
         var newPostBody = $("<p>");

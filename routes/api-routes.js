@@ -74,7 +74,8 @@ module.exports = function(app) {
             db.Rant.findAll({
                 where: {
                     user_id: req.params.id
-                }
+                },
+                order: [['updatedAt', 'DESC']]
             }).then(function(dbRant) {
                 res.json(dbRant);
             });
@@ -89,9 +90,11 @@ module.exports = function(app) {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             db.Rant.findAll({
+                include: [db.User],
                 where: {
                     restaurant_name: req.params.name
-                }
+                },
+                order: [['updatedAt', 'DESC']]
             }).then(function(dbRant) {
                 res.json(dbRant);
             });
@@ -106,7 +109,8 @@ module.exports = function(app) {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             db.Rant.findAll({
-                include: [db.User]
+                include: [db.User],
+                order: [['updatedAt', 'DESC']]
             }).then(function(dbRant) {
                 res.json(dbRant);
             });

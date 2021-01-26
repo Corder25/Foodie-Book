@@ -1,19 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light width: 100%">
 	<div class="container">
-		<a class="navbar-brand" href="/members" id="logo">FoodieBook</a>
+        <a class="navbar-brand" href="/members" id="logo">Foodie<span><img class="donut" src ="images/donut-with-sprinkles.png"</span>Book</a>
 		<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 			<li class="nav-item">
 				<a class="nav-link" href="/rant">Rant</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/my-rants">Views my Rants</a>
+				<a class="nav-link" href="/my-rants">View my Rants</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/all-rants">View all Rants</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="/members">Home</a>
-			</li>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/logout">Logout</a>
@@ -25,16 +21,17 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
-			<form class="rant-form">
+			<form style="margin-top: 20px; height: 510px; width: 1200px; margin-left: -445px;" class="rant-form">
 				<div class="form-group">
-					<label for="restaurant-name">Who are we ranting about?</label>
+					<h1 style="margin-top: -50px">RANT</h1>
+					<label for="restaurant-name" style="font-size: 30px; text-align: left">Who are we ranting about?</label>
 					<input placeholder="Restaurant name" type="text" class="form-control" id="restaurant-name">
-					<br />
-					<label for="body">What's your rant?</label>
-					<textarea class="form-control" rows="10" id="body"></textarea>
+					{{!-- <br /> --}}
+					<label style="font-size: 30px; text-align: left" for="body">What's your rant?</label>
+					<textarea placeholder="Rant here..." class="form-control" rows="10" id="body"></textarea>
 					<div class="form-group">
-						<label for="rating">Select Rating:</label>
-						<select class="custom-select" id="rating">
+						<label for="rating" style="text-align: center;">Select Rating:</label>
+						<select class="custom-select" id="rating" style="margin-top: 10px;">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -48,7 +45,7 @@
 						</select>
 					</div>
 					<br />
-					<button type="submit" class="btn btn-success submit" id="submit-btn">Submit</button>
+					<button style="background-color: #00BFFF; color:black" type="submit" class="btn btn-success submit" id="submit-btn">Submit</button>
 				</div>
 			</form>
 		</div>

@@ -20,16 +20,16 @@ module.exports = function(app) {
     // otherwise send back an error
     app.post("/api/signup", (req, res) => {
         db.User.create({
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password
-            })
-            .then(() => {
-                res.redirect(307, "/api/login");
-            })
-            .catch(err => {
-                res.status(401).json(err);
-            });
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        })
+        .then(() => {
+            res.redirect(307, "/api/login");
+        })
+        .catch(err => {
+            res.status(401).json(err);
+        });
     });
 
     // Route for logging user out
@@ -62,21 +62,6 @@ module.exports = function(app) {
         }).then(function(dbUser) {
             res.json(dbUser);
         });
-    });
-
-    app.get("/api/rants", (req, res) => {
-        if (!req.user) {
-            // The user is not logged in, send back an empty object
-            res.json({});
-        } else {
-            // Otherwise send back the user's email and id
-            // Sending back a password, even a hashed password, isn't a good idea
-            db.Rant.findAll({
-                include: [db.User]
-            }).then(function(dbRant) {
-                res.json(dbRant);
-            });
-        }
     });
 
     app.get("/api/user/:id", (req, res) => {
@@ -113,38 +98,55 @@ module.exports = function(app) {
         }
     });
 
-    app.get("/api/rants/:id", function(req, res) {
+    app.get("/api/rants", (req, res) => {
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+            // Otherwise send back the user's email and id
+            // Sending back a password, even a hashed password, isn't a good idea
+            db.Rant.findAll({
+                include: [db.User]
+            }).then(function(dbRant) {
+                res.json(dbRant);
+            });
+        }
+    });
+
+    app.get("/api/rant/:id", function(req, res) {
         // Here we add an "include" property to our options in our findOne query
         // We set the value to an array of the models we want to include in a left outer join
         // In this case, just db.Author
-        db.Post.findOne({
-          where: {
-            id: req.params.id
-          },
-          include: [db.User]
+        db.Rant.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.User]
         }).then(function(dbPost) {
-          res.json(dbPost);
+            res.json(dbPost);
         });
-      });
-    
-      // POST route for saving a new post
-      app.post("/api/rants", function(req, res) {
-        db.Rant.create(req.body).then(function(dbPost) {
-          res.json(dbPost);
-        });
-      });
-
-     // PUT route for updating posts
-  app.put("/api/rants", function(req, res) {
-    db.Rant.update(
-      req.body,
-      {
-        where: {
-          rant_id: req.body.id
-        }
-      }).then(function(dbPost) {
-      res.json(dbPost);
     });
-  });
+    
+    // POST route for saving a new post
+    app.post("/api/rants", function(req, res) {
+        db.Rant.create(req.body).then(function(dbPost) {
+            res.json(dbPost);
+        });
+    });
+
+    // PUT route for updating posts
+    app.put("/api/rants", function(req, res) {
+        console.log(req)
+        db.Rant.update(
+            req.body, {
+                where: {
+                    id: req.body.id
+                }
+            }
+        ).then(function(dbRant) {
+            res.json(dbRant);
+        }).catch(function(err) {
+            res.json(err);
+        });
+    });
 };
-;

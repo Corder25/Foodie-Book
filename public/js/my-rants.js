@@ -34,8 +34,10 @@ $(document).ready(() => {
         var newPostTitle = $("<h2>");
         var newPostDate = $("<small>");
         var editBtn = $("<button>");
-        editBtn.text("EDIT");
+        var editIcon = $("<i>");
+        editIcon.addClass("fas fa-edit");
         editBtn.addClass("edit btn btn-info");
+        editBtn.attr("type", "button");
         var newPostAuthor = $("<h5>");
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
@@ -44,9 +46,11 @@ $(document).ready(() => {
         newPostBody.text(rant.body);
         newPostDate.text(formattedDate);
         newPostTitle.append(newPostDate);
-        newPostCardHeading.append(newPostTitle);
         newPostCardHeading.append(editBtn);
-        newPostCardHeading.append(newPostAuthor);
+        editBtn.append(editIcon);
+        newPostCardHeading.append(newPostTitle);
+        // newPostCardHeading.append(newPostAuthor);
+        newPostTitle.append(editBtn);
         newPostCardBody.append(newPostBody);
         newPostCard.append(newPostCardHeading);
         newPostCard.append(newPostCardBody);
@@ -56,11 +60,11 @@ $(document).ready(() => {
 
     function handlePostEdit() {
         var currentRant = $(this)
-          .parent()
-          .parent()
-          .data("rant");
+            .parent()
+            .parent()
+            .parent()
+            .data("rant");
+        console.log(currentRant);
         window.location.href = "/rant?rant_id=" + currentRant.id;
-      }
-
-
+    }
 });

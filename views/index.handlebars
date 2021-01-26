@@ -1,15 +1,15 @@
 <body>
-    <nav class="navbar navbar-default">
+    {{!-- <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
             </div>
         </div>
-    </nav>
+    </nav> --}}
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h2>Sign Up Form</h2>
-                <form class="signup">
+                <h2 style="margin-left: -70px; margin-top: 30px; color: white; text-align: center;">Sign Up to Foodie<span><img class="donut" style="height: 1.50em; width: auto;" src ="images/donut-with-sprinkles.png"</span>Book</h2>
+                <form class="signup" style="height:400px; width: 400px; margin-top: 20px">
                     <div class="form-group">
                         <label for="exampleInputUsername">User name</label>
                         <input type="user-name" class="form-control" id="user-name-input" placeholder="User name">
@@ -28,14 +28,27 @@
                     </div>
                     <button type="submit" class="btn btn-default">Sign Up</button>
                 </form>
-                <br />
-                <p>Or log in <a href="/login">here</a></p>
+                 <p style="color: white; ">Or log in <a style="color: white;" href="/login">here</a></p>
             </div>
         </div>
     </div>
 
+          <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+      </div>
+    </div>  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="../js/signup.js"></script>
+    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
 
 </body>

@@ -13,6 +13,19 @@ $(document).ready(() => {
         };
 
         if (!userData.email || !userData.password) {
+
+            Swal.fire 
+            ({
+                title: 'Oops',
+                text:'You must enter your email AND password',
+                icon: 'error', 
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat2.gif")
+                right top
+                no-repeat
+              `
+            })
             return;
         }
 

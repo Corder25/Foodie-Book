@@ -80,6 +80,7 @@ $(document).ready(() => {
             }
             })
             .then(() => {
+                localStorage.setItem("user", JSON.stringify(data));
                 window.location.replace("/members");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })

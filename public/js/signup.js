@@ -14,9 +14,52 @@ $(document).ready(() => {
             password: passwordInput.val().trim()
         };
 
+        if (userData.username.length<2) {
+
+            // Swal.fire(
+            //     'The Internet?',
+            //     'That thing is still around?',
+            //     'question'
+            //   )
+            Swal.fire 
+            ({
+                title: 'Oops',
+                text:'Your username must be 3 or more characters',
+                icon: 'error', 
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat2.gif")
+                right top
+                no-repeat
+              `
+            })
+        }
+
+        if (userData.password.length<1) {
+
+            // Swal.fire(
+            //     'The Internet?',
+            //     'That thing is still around?',
+            //     'question'
+            //   )
+            Swal.fire 
+            ({
+                title: 'Oops',
+                text:'Your password must be at least one character',
+                icon: 'error', 
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat2.gif")
+                right top
+                no-repeat
+              `
+            })
+        }
+
         if (!userData.username || !userData.email || !userData.password) {
             return;
         }
+
         // If we have an email and password, run the signUpUser function
         signUpUser(userData.username, userData.email, userData.password);
         usernameInput.val("");

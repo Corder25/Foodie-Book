@@ -1,19 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light width: 100%">
     <div class="container">
-        <a class="navbar-brand" href="/members" id="logo">FoodieBook</a>
+        <a class="navbar-brand" href="/members" id="logo">Foodie<span><img class="donut" src ="images/donut-with-sprinkles.png"</span>Book</a>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/rant">Rant</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/review-rants">Review/Update previous Rant</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/view-others">Peruse other's Rants</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/members">Home</a>
-            </li>
+				<a class="nav-link" href="/rant">Rant</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/my-rants">View my Rants</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/all-rants">View all Rants</a>
+			</li>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
@@ -21,15 +18,16 @@
         </ul>
     </div>
 </nav>
-<div class="container">
+
+<div class="container extra-container">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h2 class="text-center">Welcome <span class="member-name"></span></h2>
+        <div class="col-md-6 col-md-offset-3">
+            <h2 style="margin-top: 5px; margin-left: 200px;">Welcome <span class="member-name"></span></h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h3 class="text-center">What would you like to do today?</h3>
+        <div class="col">
+            <h3 style="margin-bottom: 20px;"> What would you like to do today?</h3>
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <button type="button" id="rant-btn">Rant!</button>

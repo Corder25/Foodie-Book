@@ -44,7 +44,7 @@ $(document).ready(() => {
                 backdrop: `
                 rgba(0,0,123,0.4)
                 url("/images/nyan-cat2.gif")
-                right center
+                right top
                 no-repeat
               `
             })

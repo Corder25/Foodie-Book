@@ -235,6 +235,17 @@ a:hover {
     outline: none;
   }
 
-  /* .swal-gif {
+  h1 {
+    color: white;
+  }
+
+/* i {
+  margin-top: 10px; 
+  height: 100px;
+  width: 100px;
+  color: white;
+} */
+
+  /* .swal-background {
 
   } */

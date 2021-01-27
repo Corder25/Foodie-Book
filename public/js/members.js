@@ -3,6 +3,11 @@ $(document).ready(() => {
     const rantBtn = $("#rant-btn");
     const myRantsBtn = $("#my-rants-btn");
     const allRantsBtn = $("#all-rants-btn");
+    const logoutBtn = $(".logout-button");
+
+    logoutBtn.on("click", function() {
+        window.localStorage.clear(); 
+    })
 
     rantBtn.on("click", function() {
         window.location.replace("/rant");
@@ -15,6 +20,8 @@ $(document).ready(() => {
     allRantsBtn.on("click", function() {
         window.location.replace("/all-rants");
     });
+
+
 
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page

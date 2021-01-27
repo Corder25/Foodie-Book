@@ -1,13 +1,3 @@
-{{!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav> --}}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light width: 100%">
     <div class="container">
         <a class="navbar-brand" href="/members" id="logo">FoodieBook</a>
@@ -31,30 +21,32 @@
         </ul>
     </div>
 </nav>
-
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h2>Welcome <span class="member-name"></span></h2>
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center">Welcome <span class="member-name"></span></h2>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <h3> What would you like to do today?</h3>
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">What would you like to do today?</h3>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6 offset-md-3">
                     <button type="button" id="rant-btn">Rant!</button>
                 </div>
-                <div class="col">
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
                     <button type="button" id="my-rants-btn">View my Rants</button>
                 </div>
-                <div class="col">
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
                     <button type="button" id="all-rants-btn">View all Rants</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>

@@ -37,11 +37,6 @@ $(document).ready(() => {
 
         if (userData.password.length<1) {
 
-            // Swal.fire(
-            //     'The Internet?',
-            //     'That thing is still around?',
-            //     'question'
-            //   )
             Swal.fire 
             ({
                 title: 'Oops',

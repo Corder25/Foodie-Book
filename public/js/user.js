@@ -39,12 +39,12 @@ $(document).ready(() => {
         var newPostTitle = $("<h2>");
         var newPostDate = $("<small>");
         var newPostAuthor = $("<h5>");
-        // newPostAuthor.text("Written by: " + rant.username);
-        // newPostAuthor.css({
-        //     float: "right",
-        //     color: "blue",
-        //     "margin-top": "-10px"
-        // });
+        var newRating = $("<h2>");
+        newRating.addClass("rating")
+        newRating.text("Rating: " + rant.rating);
+        newRating.css({
+            "margin-top": "-10px"
+        });
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
         var newPostBody = $("<p>");
@@ -56,6 +56,7 @@ $(document).ready(() => {
         newPostCardHeading.append(newPostAuthor);
         newPostCardBody.append(newPostBody);
         newPostCard.append(newPostCardHeading);
+        newPostCardHeading.append(newRating);
         newPostCard.append(newPostCardBody);
         newPostCard.data("rant", rant);
         return newPostCard;

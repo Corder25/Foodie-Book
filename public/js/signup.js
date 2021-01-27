@@ -70,12 +70,17 @@ $(document).ready(() => {
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
     function signUpUser(username, email, password) {
-        $.post("/api/signup", {
+        $.ajax({
+            url: "/api/signup",
+            method: "POST",    
+            data: {
                 username: username,
                 email: email,
                 password: password
+            }
             })
             .then(() => {
+                localStorage.setItem("user", JSON.stringify(data));
                 window.location.replace("/members");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })

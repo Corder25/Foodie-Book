@@ -38,6 +38,12 @@ $(document).ready(() => {
         editIcon.addClass("fas fa-edit");
         editBtn.addClass("edit btn btn-info");
         editBtn.attr("type", "button");
+        var newRating = $("<h2>");
+        newRating.addClass("rating")
+        newRating.text("Rating: " + rant.rating);
+        newRating.css({
+            "margin-top": "-40px"
+        });
         var newPostAuthor = $("<h5>");
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
@@ -51,6 +57,7 @@ $(document).ready(() => {
         newPostCardHeading.append(newPostTitle);
         // newPostCardHeading.append(newPostAuthor);
         newPostTitle.append(editBtn);
+        newPostCardHeading.append(newRating);
         newPostCardBody.append(newPostBody);
         newPostCard.append(newPostCardHeading);
         newPostCard.append(newPostCardBody);

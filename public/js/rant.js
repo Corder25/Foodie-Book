@@ -23,7 +23,6 @@ $(document).ready(() => {
     }
 
 
-
     // When the form is submitted, we validate there's an email and password entered
     rantForm.on("submit", event => {
         event.preventDefault();
@@ -36,7 +35,38 @@ $(document).ready(() => {
             UserId: user_id
         };
 
+        if (rantData.restaurant_name<3) {
+            Swal.fire 
+            ({
+                title: 'Oops',
+                text:'Restaurant name must be at least 3 characters',
+                icon: 'error', 
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat2.gif")
+                right center
+                no-repeat
+              `
+            })
+        }
+
+        if (rantData.body<1) {
+            Swal.fire 
+            ({
+                title: 'Oops',
+                text:'Rant must be at least one character',
+                icon: 'error', 
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat2.gif")
+                right center
+                no-repeat
+              `
+            })
+        }
+
         if (!rantData.restaurant_name || !rantData.body || !rantData.rating) {
+
             return;
         }
 

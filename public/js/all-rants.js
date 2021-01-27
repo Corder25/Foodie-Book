@@ -36,8 +36,11 @@ $(document).ready(() => {
         newPostAuthor.css({
             float: "right",
             color: "blue",
-            "margin-top": "-10px"
+            "margin-top": "-60px"
         });
+        var newRating = $("<h2>");
+        newRating.addClass("rating")
+        newRating.text("Rating: " + rant.rating);
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");
         var newPostBody = $("<p>");
@@ -47,6 +50,7 @@ $(document).ready(() => {
         newPostTitle.append(newPostDate);
         newPostCardHeading.append(resLink);
         resLink.append(newPostTitle);
+        newPostCardHeading.append(newRating);
         newPostCardHeading.append(userLink);
         userLink.append(newPostAuthor);
         newPostCardBody.append(newPostBody);

@@ -1,6 +1,6 @@
 form.signup,
 form.login {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 ul {
@@ -196,15 +196,15 @@ a:hover {
   .drop-1 {
     height: 100px;
     width: 100px;
-    top: 50px;
+    top: 75px;
     left: 310px;
     z-index: -1;
   }
   .drop-2 {
     height: 100px;
     width: 100px;
-    bottom: -30px;
-    right: -10px;
+    bottom: 50px;
+    left: 700px;
   }
   .drop-3 {
     height: 100px;
@@ -238,14 +238,3 @@ a:hover {
   h1 {
     color: white;
   }
-
-/* i {
-  margin-top: 10px; 
-  height: 100px;
-  width: 100px;
-  color: white;
-} */
-
-  /* .swal-background {
-
-  } */

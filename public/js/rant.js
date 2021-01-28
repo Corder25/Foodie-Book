@@ -7,6 +7,21 @@ $(document).ready(() => {
     const submitBtn = $("#submit-btn");
     var updating = false;
 
+    var availableRes = [];
+
+    $.get("/api/rants").then(data => {
+        for (var i = 0; i < data.length; i++) {
+            if (availableRes.indexOf(data[i].restaurant_name) == -1)
+                availableRes.push(data[i].restaurant_name);
+        }
+        console.log(availableRes);
+    });
+
+    $("#restaurant-name").autocomplete({
+
+        source: availableRes
+    });
+
     let user_id;
     $.get("/api/user_data").then(data => {
         user_id = data.id;

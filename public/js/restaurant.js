@@ -50,6 +50,14 @@ $(document).ready(() => {
         });
         var newRating = $("<h2>");
         newRating.addClass("rating")
+        if (rant.rating<4) {
+            newRating.addClass("rating-low");
+        } else if (rant.rating<8) {
+            newRating.addClass("rating-medium");
+        } else {
+            newRating.addClass("rating-high");
+        }
+        newRating.text("Rating: " + rant.rating);
         newRating.text("Rating: " + rant.rating);
         newRating.css({
             "margin-top": "-10px"

@@ -148,6 +148,7 @@ body {
 
 small {
   font-size: 15px;
+  /* text-decoration: none;  */
 }
 
   .btn {
@@ -168,6 +169,12 @@ a {
 }
 a:hover {
   color: #002244
+}
+
+.icon-members {
+  margin-top: 50px;
+  font-size: 100px;
+  color: white; 
 }
 
   ::placeholder {
@@ -237,4 +244,21 @@ a:hover {
 
   h1 {
     color: white;
+  }
+
+  .rating-low {
+    color: red; 
+  }
+
+  .rating-medium {
+    color:yellow; 
+  }
+
+  .rating-high {
+    color: limegreen; 
+  }
+
+  .vl {
+    border-left: 6px solid green;
+    height: 200px;
   }

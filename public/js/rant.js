@@ -63,9 +63,7 @@ $(document).ready(() => {
                 no-repeat
               `
             })
-        }
-
-        if (rantData.body<1) {
+        } else if (rantData.body<1) {
             Swal.fire 
             ({
                 title: 'Oops',
@@ -103,6 +101,7 @@ $(document).ready(() => {
             if (data) {
                 console.log(data);
                 restaurantNameInput.val(data.restaurant_name);
+                restaurantNameInput.attr('readonly', true); 
                 bodyInput.val(data.body);
                 ratingInput.val(data.rating);
             }

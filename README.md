@@ -1,5 +1,5 @@
 # FoodieBook
-![Screenshot (56)](https://user-images.githubusercontent.com/69650837/105936939-31737b00-601a-11eb-8539-cb0141b93f4c.png)
+![Screenshot](public/images/FB.jpg "FoodieBook Screenshot")
 
 ## Description
 With FoodieBook you are able to post and edit "Rants" about local restaurants, giving a review of your experience. Additionally, you are able to peruse all created "Rants" to find reviews of other restaurants. You can also look at a user's personal "Rant" feed as well as viewing all "Rants" related to a certain restaurant. 

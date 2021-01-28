@@ -40,8 +40,8 @@ app.set("view engine", "handlebars");
 // Requiring our routes
 require("./routes/html-routes")(app);
 require("./routes/api-routes.js")(app);
-require("./routes/rant-api-routes.js")(app);
-require("./routes/user-api-routes.js")(app);
+// require("./routes/rant-api-routes.js")(app);
+// require("./routes/user-api-routes.js")(app);
 
 // var controllers = require('./controllers')(app);
 // app.use(controllers);

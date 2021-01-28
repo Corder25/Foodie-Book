@@ -28,6 +28,7 @@ $(document).ready(() => {
         var newPostTitle = $("<h2>");
         var resLink = $("<a>");
         resLink.attr('href', '/restaurant?name=' + rant.restaurant_name);
+        resLink.attr('style', 'text-decoration: none');
         var newPostDate = $("<small>");
         var userLink = $("<a>");
         userLink.attr('href', '/user?user_id=' + rant.User.id);
@@ -40,6 +41,14 @@ $(document).ready(() => {
         });
         var newRating = $("<h2>");
         newRating.addClass("rating")
+        if (rant.rating<4) {
+            newRating.addClass("rating-low");
+        } else if (rant.rating<8) {
+            newRating.addClass("rating-medium");
+        } else {
+            newRating.addClass("rating-high");
+        }
+        newRating.text("Rating: " + rant.rating);
         newRating.text("Rating: " + rant.rating);
         var newPostCardBody = $("<div>");
         newPostCardBody.addClass("card-body");

@@ -12,6 +12,7 @@ $(document).ready(() => {
             password: passwordInput.val().trim()
         };
 
+
         if (!userData.email || !userData.password) {
 
             Swal.fire 
@@ -48,6 +49,18 @@ $(document).ready(() => {
                 // If there's an error, log the error
             })
             .catch(err => {
+            Swal.fire 
+            ({
+                title: 'Oops',
+                text:'Please check your email AND password',
+                icon: 'error', 
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat2.gif")
+                right top
+                no-repeat
+              `
+            })
                 console.log(err);
             });
     }

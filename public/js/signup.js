@@ -35,6 +35,25 @@ $(document).ready(() => {
             })
         }
 
+        // var split =userData.email.split("@"); 
+
+
+        // if (split[1]!=="@") {
+
+        //     Swal.fire 
+        //     ({
+        //         title: 'Oops',
+        //         text:'You must enter an email address',
+        //         icon: 'error', 
+        //         backdrop: `
+        //         rgba(0,0,123,0.4)
+        //         url("/images/nyan-cat2.gif")
+        //         right top
+        //         no-repeat
+        //       `
+        //     })
+        // }
+
         if (userData.password.length<1) {
 
             Swal.fire 

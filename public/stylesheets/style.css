@@ -9,7 +9,7 @@ ul {
 
 ul li {
     margin-top: 15px;
-    margin-left: 5px;
+    margin-left: 5px; 
 }
 
 button.edit {
@@ -21,6 +21,10 @@ button.edit {
 .donut {
     width: 2em; 
     height: auto; 
+}
+
+.navbar-brand {
+  margin-left: -300px; 
 }
 
 body {
@@ -49,12 +53,12 @@ body {
 
 .navbar {
     height: 50px; 
-    margin-left: -325px;
+    /* margin-left: -325px; */
     margin-bottom: 5px;
 }
   .container {
     position: absolute;  
-    margin-left: 350px; 
+    margin-left: 300px; 
     height: 150px; 
     width: 800px;
   }
@@ -198,39 +202,39 @@ a:hover {
   }
 
   .drop:hover {
-      margin:-5px;
+      margin: -4px;
   }
   .drop-1 {
     height: 100px;
     width: 100px;
-    top: 75px;
-    left: 310px;
+    top: 50px;
+    left: 480px;
     z-index: -1;
   }
   .drop-2 {
-    height: 100px;
-    width: 100px;
-    bottom: 50px;
-    left: 700px;
+    height: 120px;
+    width: 120px;
+    bottom: 70px;
+    left: 900px;
   }
   .drop-3 {
     height: 100px;
     width: 100px;
-    bottom: 120px;
-    right: -50px;
+    bottom: -40px;
+    right: -900px;
     z-index: -1;
   }
   .drop-4 {
-    height: 120px;
-    width: 120px;
-    top: -60px;
-    right: -60px;
+    height: 100px;
+    width: 100px;
+    top: 140px;
+    right: -870px;
   }
   .drop-5 {
-    height: 60px;
-    width: 60px;
-    bottom: 170px;
-    left: 90px;
+    height: 80px;
+    width: 80px;
+    bottom: 40px;
+    left: 600px;
     z-index: -1;
   }
   
